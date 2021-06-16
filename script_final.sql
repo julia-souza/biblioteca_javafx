@@ -138,6 +138,19 @@ SELECT c.nome_cliente     AS "cliente",
  INNER JOIN livro l ON iv.cod_livro_iv = l.cod_livro
  GROUP BY (c.nome_cliente);
  
+ /*4 :: SOMANDO VENDA */
+SELECT  l.titulo,
+        v.cod_venda        AS "código venda",
+	    SUM(iv.quantidade) AS "quantidade",	
+		c.nome_cliente     AS "cliente",
+		iv.valor_item	   AS "valor item",
+	    SUM(iv.valor_item) AS "valor venda"
+ FROM itens_venda iv
+ INNER JOIN venda v   ON iv.cod_venda_iv = v.cod_venda 
+ INNER JOIN cliente c ON v.cod_cliente_v = c.cod_cliente
+ INNER JOIN livro l   ON iv.cod_livro_iv = l.cod_livro
+ GROUP BY (c.nome_cliente, l.titulo,iv.valor_item, v.cod_venda);
+ 
  
  /*DESCRIÇÃO CLIENTE*/
  SELECT cod_cliente,

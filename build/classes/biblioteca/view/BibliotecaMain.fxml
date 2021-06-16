@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar prefHeight="52.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Cadastro">
+            <items>
+              <MenuItem fx:id="cadastro_cliente_menuitem" mnemonicParsing="false" text="Cliente" />
+                  <MenuItem fx:id="cadastro_livro_menuitem" mnemonicParsing="false" text="Livro" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Livros">
+              <items>
+                <MenuItem fx:id="listar_livros_menuitem" mnemonicParsing="false" text="Listar" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Vendas">
+              <items>
+                <MenuItem fx:id="listar_vendas_menuitem" mnemonicParsing="false" text="Listar" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Gráficos">
+            <items>
+              <MenuItem fx:id="grafico_genero_menuitem" mnemonicParsing="false" text="Genero" />
+                  <MenuItem fx:id="grafico_data_menuitem" mnemonicParsing="false" text="Data" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Relatórios">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Genero" />
+                  <MenuItem mnemonicParsing="false" text="Data" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane fx:id="anchorpane" prefHeight="376.0" prefWidth="600.0" />
+   </children>
+</VBox>
