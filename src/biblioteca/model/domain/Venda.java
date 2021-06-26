@@ -15,6 +15,7 @@ import java.util.List;
 public class Venda implements Serializable{
     private int cdVenda;
     private double valor;
+    private LocalDate data;
     private List<ItensDeVenda> itensDeVenda;
     private Cliente cliente;
 
@@ -24,6 +25,15 @@ public class Venda implements Serializable{
     public Venda(int cdvenda, LocalDate data, double valor) {
         this.cdVenda = cdvenda;
         this.valor = valor;
+        this.data = data;
+    }
+    
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     public int getCdVenda() {

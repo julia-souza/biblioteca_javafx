@@ -5,10 +5,13 @@
  */
 package biblioteca.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 
@@ -44,11 +47,26 @@ public class BibliotecaMainController implements Initializable {
     private MenuItem relatorio_data_menuitem;
     
     @FXML
-    private AnchorPane anchorPane;
+    private AnchorPane anchorpane;
+    
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+    
+    @FXML
+    public void handleMenuItemRelatoriosPorGenero() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/biblioteca/view/FXMLRelatorioPorGenero.fxml"));
+        anchorpane.getChildren().setAll(a);      
+    }
+    
+    @FXML
+    public void handleMenuItemRelatoriosPorVenda() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/biblioteca/view/FXMLRelatorioPorVenda.fxml"));
+        anchorpane.getChildren().setAll(a);      
+    }
+    
     
 }

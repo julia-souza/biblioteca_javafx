@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.BibliotecaMainController">
    <children>
       <MenuBar prefHeight="52.0" prefWidth="600.0">
         <menus>
@@ -36,8 +34,8 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Relatórios">
             <items>
-              <MenuItem mnemonicParsing="false" text="Genero" />
-                  <MenuItem mnemonicParsing="false" text="Data" />
+              <MenuItem fx:id="relatorio_genero_menuitem" mnemonicParsing="false" onAction="#handleMenuItemRelatoriosPorGenero" text="Genero" />
+                  <MenuItem fx:id="relatorio_data_menuitem" mnemonicParsing="false" onAction="#handleMenuItemRelatoriosPorVenda" text="Data" />
             </items>
           </Menu>
         </menus>

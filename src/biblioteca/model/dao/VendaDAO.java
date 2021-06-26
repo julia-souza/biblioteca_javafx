@@ -147,8 +147,8 @@ public class VendaDAO {
         return retorno;
     }
 
-    /*public Map<Integer, ArrayList> listarQuantidadeVendasPorMes() {
-        String sql = "select count(cdVenda), extract(year from data) as ano, extract(month from data) as mes from vendas group by ano, mes order by ano, mes";
+    public Map<Integer, ArrayList> listarQuantidadeVendasPorMes() {
+        String sql = "select count(cod_venda), extract(year from data) as ano, extract(month from data) as mes from vendas group by ano, mes order by ano, mes";
         Map<Integer, ArrayList> retorno = new HashMap();
         
         try {
@@ -173,5 +173,36 @@ public class VendaDAO {
             Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return retorno;
-    }*/
+    }
+    
+    
+    public Map<Integer, ArrayList> listarQuantidadeVendasPorGenero() {
+        String sql = "select count(cod_Venda), extract(year from data) as ano, extract(month from data) as mes from vendas"
+                + "FROM venda v, INNER JOIN itens_venda iv ON v.cod_venda = iv.cod_venda_iv,"
+                + "INNER JOIN livro l ON iv.cod_livro_iv = l.cod_livro, INNER JOIN genero gen ON l.cod_livro = gen.cod_livro, group by gen.cod_genero";
+        Map<Integer, ArrayList> retorno = new HashMap();
+        
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet resultado = stmt.executeQuery();
+
+            while (resultado.next()) {
+                ArrayList linha = new ArrayList();
+                if (!retorno.containsKey(resultado.getInt("ano")))
+                {
+                    linha.add(resultado.getInt("gen.cod_genero"));
+                    linha.add(resultado.getInt("count"));
+                    retorno.put(resultado.getInt("ano"), linha);
+                }else{
+                    ArrayList linhaNova = retorno.get(resultado.getInt("ano"));
+                    linhaNova.add(resultado.getInt("gen.cod_genero"));
+                    linhaNova.add(resultado.getInt("count"));
+                }
+            }
+            return retorno;
+        } catch (SQLException ex) {
+            Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retorno;
+    }
 }
