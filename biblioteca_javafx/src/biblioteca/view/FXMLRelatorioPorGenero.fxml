@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.FXMLRelatorioPorGeneroController">
+   <children>
+      <TableView fx:id="tabelaPorGenero" layoutX="14.0" layoutY="14.0" prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="tabelaPorGeneroCodigo" prefWidth="99.0" text="Codigo" />
+            <TableColumn fx:id="tabelaPorGeneroGenero" prefWidth="289.0" text="Genero" />
+            <TableColumn fx:id="tabelaPorGeneroQuantidade" prefWidth="211.0" text="Quantidade" />
+        </columns>
+      </TableView>
+      <Button fx:id="botaoImprimir" layoutX="536.0" layoutY="373.0" mnemonicParsing="false" text="Imprimir" />
+   </children>
+</AnchorPane>
