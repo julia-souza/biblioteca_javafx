@@ -7,8 +7,60 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.CadastroLivroController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="biblioteca.controller.CadastroLivroController">
     <stylesheets>
-        <URL value="@/biblioteca/css/cadastrolivro.css"/>
+        <URL value="@/biblioteca/css/cadastrolivro.css" />
     </stylesheets>
+   <children>
+      <SplitPane dividerPositions="0.39297658862876256" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="tableViewLivros" prefHeight="398.0" prefWidth="232.0">
+                    <columns>
+                      <TableColumn fx:id="tableColumnLivroTitulo" prefWidth="110.0" text="Titulo" />
+                      <TableColumn fx:id="tableColumnLivroEdicao" prefWidth="121.0" text="Edicao" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="379.0">
+               <children>
+                  <GridPane layoutX="80.0" layoutY="109.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Código" />
+                        <Label text="Titulo" GridPane.rowIndex="1" />
+                        <Label text="Edição" GridPane.rowIndex="3" />
+                        <Label text="Autor" GridPane.rowIndex="2" />
+                        <Label text="Genero" GridPane.rowIndex="4" />
+                        <Label GridPane.columnIndex="1" />
+                        <Label GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+                  <Group>
+                     <children>
+                        <Button fx:id="buttonRemover" layoutX="288.0" layoutY="336.0" mnemonicParsing="false" text="Remover" />
+                        <Button fx:id="buttonInserir" layoutX="166.0" layoutY="336.0" mnemonicParsing="false" text="Inserir" />
+                        <Button fx:id="buttonAlterar" layoutX="228.0" layoutY="336.0" mnemonicParsing="false" text="Alterar" />
+                     </children>
+                  </Group>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
 </AnchorPane>

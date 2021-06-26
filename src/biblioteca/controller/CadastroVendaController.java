@@ -5,11 +5,13 @@
  */
 package biblioteca.controller;
 
-import biblioteca.model.dao.GeneroDAO;
+import biblioteca.model.dao.ItensDeVendaDAO;
 import biblioteca.model.dao.LivroDAO;
+import biblioteca.model.dao.VendaDAO;
 import biblioteca.model.database.Database;
 import biblioteca.model.database.DatabaseFactory;
-import biblioteca.model.domain.Livro;
+import biblioteca.model.domain.Cliente;
+import biblioteca.model.domain.Venda;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.Date;
@@ -28,44 +30,47 @@ import javafx.scene.control.TableView;
  *
  * @author Yesod
  */
-public class CadastroLivroController implements Initializable {
+public class CadastroVendaController implements Initializable {
+
+    /**
+     * Initializes the controller class.
+     */
     
+    @FXML
+    private TableView<Cliente> tableViewVendas;
     
     @FXML
-    private TableView<Livro> tableViewLivros;
+    private TableColumn<Venda, Integer> tableColumnVendaCodigo;
     @FXML
-    private TableColumn<Livro, String> tableColumnLivroTitulo;
+    private TableColumn<Venda, Date> tableColumnVendaData;
     @FXML
-    private TableColumn<Livro, Integer> tableColumnLivroEdicao;
+    private TableColumn<Venda, Venda> tableColumnVendaCliente;
+    
     @FXML
     private Button buttonInserir;
     @FXML
-    private Button buttonAlterar;
-    @FXML
     private Button buttonRemover;
     @FXML
-    private Label labelLivroCodigo;
+    private Label labelVendaCodigo;
     @FXML
-    private Label labelLivroTitulo;
+    private Label labelVendaData;
     @FXML
-    private Label labelLivroAutor;
+    private Label labelVendaValor;
     @FXML
-    private Label labelLivroEdicao;
-    @FXML
-    private Label labelLivroGenero;
+    private Label labelVendaCliente;
     
-    
-    private List<Livro> listLivros;
-    private ObservableList<Livro> observableListLivros;
+    private List<Cliente> listClientes;
+    private ObservableList<Cliente> observableListClientes;
+
+    private List<Venda> listVendas;
+    private ObservableList<Venda> observableListVendas;
 
     //Atributos para manipulação de Banco de Dados
     private final Database database = DatabaseFactory.getDatabase("postgresql");
     private final Connection connection = database.conectar();
+    private final VendaDAO vendaDAO = new VendaDAO();
+    private final ItensDeVendaDAO itesDeVendaDAO = new ItensDeVendaDAO();
     private final LivroDAO livroDAO = new LivroDAO();
-    private final GeneroDAO generoDAO = new GeneroDAO();
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

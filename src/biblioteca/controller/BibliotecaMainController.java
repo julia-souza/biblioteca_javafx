@@ -29,10 +29,7 @@ public class BibliotecaMainController implements Initializable {
     private MenuItem cadastro_livro_menuitem;
     
     @FXML
-    private MenuItem listar_livros_menuitem;
-    
-    @FXML
-    private MenuItem listar_vendas_menuitem;
+    private MenuItem cadastro_vendas_menuitem;
     
     @FXML
     private MenuItem grafico_genero_menuitem;
@@ -65,6 +62,24 @@ public class BibliotecaMainController implements Initializable {
     @FXML
     public void handleMenuItemRelatoriosPorVenda() throws IOException {
         AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/biblioteca/view/FXMLRelatorioPorVenda.fxml"));
+        anchorpane.getChildren().setAll(a);      
+    }
+    
+    @FXML
+    public void handleMenuItemCadastroCliente() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/biblioteca/view/cadastroCliente.fxml"));
+        anchorpane.getChildren().setAll(a);      
+    }
+    
+     @FXML
+    public void handleMenuItemCadastroLivro() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/biblioteca/view/cadastroLivro.fxml"));
+        anchorpane.getChildren().setAll(a);      
+    }
+    
+    @FXML
+    public void handleMenuItemCadastroVenda() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/biblioteca/view/cadastroVenda.fxml"));
         anchorpane.getChildren().setAll(a);      
     }
     

@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.BibliotecaMainController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.BibliotecaMainController">
    <children>
       <MenuBar prefHeight="52.0" prefWidth="600.0">
         <menus>
-          <Menu mnemonicParsing="false" text="Cadastro">
+          <Menu mnemonicParsing="false" text="Cliente">
             <items>
-              <MenuItem fx:id="cadastro_cliente_menuitem" mnemonicParsing="false" text="Cliente" />
-                  <MenuItem fx:id="cadastro_livro_menuitem" mnemonicParsing="false" text="Livro" />
+              <MenuItem fx:id="cadastro_cliente_menuitem" mnemonicParsing="false" onAction="#handleMenuItemCadastroCliente" text="Cadastro" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Livros">
               <items>
-                <MenuItem fx:id="listar_livros_menuitem" mnemonicParsing="false" text="Listar" />
+                <MenuItem fx:id="cadastro_livro_menuitem" mnemonicParsing="false" onAction="#handleMenuItemCadastroLivro" text="Cadastro" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Vendas">
               <items>
-                <MenuItem fx:id="listar_vendas_menuitem" mnemonicParsing="false" text="Listar" />
+                <MenuItem fx:id="cadastro_vendas_menuitem" mnemonicParsing="false" onAction="#handleMenuItemCadastroVenda" text="Cadastro" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Gráficos">
