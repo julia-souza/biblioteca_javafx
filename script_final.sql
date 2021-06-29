@@ -151,6 +151,17 @@ SELECT  l.titulo,
  INNER JOIN livro l   ON iv.cod_livro_iv = l.cod_livro
  GROUP BY (c.nome_cliente, l.titulo,iv.valor_item, v.cod_venda);
  
+ /*5 :: RELATÓRIO LIVRO*/
+SELECT l.cod_livro,
+	   l.titulo,
+	   l.edicao,
+	   a.nome_autor,
+	   g.tipo_genero
+ FROM livro l
+ INNER JOIN autor a  ON l.cod_autor_l  = a.cod_autor
+ INNER JOIN genero g ON l.cod_genero_l = cod_genero
+ ORDER BY (l.cod_livro);
+
  
  /*DESCRIÇÃO CLIENTE*/
  SELECT cod_cliente,

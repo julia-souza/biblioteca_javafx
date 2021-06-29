@@ -43,7 +43,7 @@ public class FXMLRelatorioPorGeneroController implements Initializable {
     
     @FXML
     private Button botaoImprimir;
-    
+   
     
     private List<Genero> listGeneros;
     private ObservableList<Genero> observableListGeneros;
