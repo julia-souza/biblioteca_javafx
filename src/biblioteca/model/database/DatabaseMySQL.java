@@ -16,8 +16,8 @@ public class DatabaseMySQL implements Database {
     @Override
     public Connection conectar() {
         try {
-            // Class.forName("com.mysql.jdbc.Driver");
-            Class.forName("org.postgresql.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
+            //Class.forName("org.postgresql.Driver");
             this.connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1/biblioteca", "postgres", "123");
             return this.connection;
         } catch (SQLException | ClassNotFoundException ex) {
