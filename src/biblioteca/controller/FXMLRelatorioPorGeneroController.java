@@ -5,10 +5,11 @@
  */
 package biblioteca.controller;
 
-import biblioteca.model.dao.GeneroDAO;
+import biblioteca.model.dao.LivroDAO;
 import biblioteca.model.database.Database;
 import biblioteca.model.database.DatabaseFactory;
-import biblioteca.model.domain.Genero;
+import biblioteca.model.domain.ItensDeVenda;
+import biblioteca.model.domain.Livro;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.List;
@@ -30,41 +31,54 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class FXMLRelatorioPorGeneroController implements Initializable {
 
     @FXML 
-    private TableView<Genero> tabelaPorGenero;
+    private TableView<Livro> tabelaPorGenero;
     
     @FXML
-    private TableColumn<Genero,Integer> tabelaPorGeneroCodigo;
+    private TableColumn<Livro,Integer> tabelaPorGeneroCodigo;
     
     @FXML
-    private TableColumn<Genero,String> tabelaPorGeneroGeneroNome;
+    private TableColumn<Livro,String> tabelaPorGeneroGenero;
     
     @FXML
-    private TableColumn<Genero,Integer> tabelaPorGeneroQuantidade;
+    private TableColumn<Livro,ItensDeVenda> tabelaPorGeneroQuantidade; /*acessa a tabela livro e itens de venda*/
     
     @FXML
     private Button botaoImprimir;
    
     
-    private List<Genero> listGeneros;
-    private ObservableList<Genero> observableListGeneros;
+    private List<Livro> listGeneros;
+    private ObservableList<Livro> observableListGeneros;
     
     private final Database database = DatabaseFactory.getDatabase("postgresql");
     private final Connection connection = database.conectar();
-    private final GeneroDAO generoDAO = new GeneroDAO();
+    private final LivroDAO livroDAO = new LivroDAO();
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //generoDAO.setConnection(connection);
-        //carregarTableViewGeneros();
+        livroDAO.setConnection(connection);
+        carregarTableViewGeneros();
         
     }    
     public void carregarTableViewGeneros() {
-        tabelaPorGeneroCodigo.setCellValueFactory(new PropertyValueFactory<>("cdGenero"));
-        tabelaPorGeneroGeneroNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        /*
+        tableColumnCod.setCellValueFactory((param) -> new SimpleStringProperty(String.valueOf(param.getValue().getCod())));
+        tableColumnTipodeEmprestimo.setCellValueFactory(new PropertyValueFactory<>("emprestimo"));
+        tableColumnQuantiadoEmprestimo.setCellValueFactory(new PropertyValueFactory<>("valor"));
+        tableColumnQtdParcelas.setCellValueFactory(new PropertyValueFactory<>("parcela"));
+        tableColumnNomeCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+
+        listEmprestimoConfirmado = emprestimoConfirmadoDao.listar();
+        observableListEmprestimoConfirmado = FXCollections.observableArrayList(listEmprestimoConfirmado);
+        tableViewRelatorio.setItems(observableListEmprestimoConfirmado);
+        */
+        
+        
+        tabelaPorGeneroCodigo.setCellValueFactory(new PropertyValueFactory<>("cod_genero"));
+        tabelaPorGeneroGenero.setCellValueFactory(new PropertyValueFactory<>("tipo_genero"));
         tabelaPorGeneroQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
 
-        listGeneros = generoDAO.listar();
+        listGeneros = livroDAO.listar();
 
         observableListGeneros = FXCollections.observableArrayList(listGeneros);
         tabelaPorGenero.setItems(observableListGeneros);
