@@ -32,11 +32,12 @@ public class VendaDAO {
     }
 
     public boolean inserir(Venda venda) {
-        String sql = "INSERT INTO venda(valor_venda, cod_cliente_v) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO venda(data_venda,valor_venda, cod_cliente_v) VALUES(?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setDouble(1, venda.getValor());
-            stmt.setInt(2, venda.getCliente().getCdCliente());
+            stmt.setDate(1, Date.valueOf(venda.getData()));
+            stmt.setDouble(2, venda.getValor());
+            stmt.setInt(3, venda.getCliente().getCdCliente());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
@@ -46,12 +47,13 @@ public class VendaDAO {
     }
 
     public boolean alterar(Venda venda) {
-        String sql = "UPDATE venda SET valor_venda=?, cod_cliente_v=? WHERE cod_venda=?";
+        String sql = "UPDATE venda SET data_venda=?,valor_venda=?, cod_cliente_v=? WHERE cod_venda=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setDouble(1, venda.getValor());
-            stmt.setInt(2, venda.getCliente().getCdCliente());
-            stmt.setInt(3, venda.getCdVenda());
+            stmt.setDate(1, Date.valueOf(venda.getData()));
+            stmt.setDouble(2, venda.getValor());
+            stmt.setInt(3, venda.getCliente().getCdCliente());
+            stmt.setInt(4, venda.getCdVenda());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
@@ -84,7 +86,7 @@ public class VendaDAO {
                 Cliente cliente = new Cliente();
                 List<ItensDeVenda> itensDeVenda = new ArrayList();
 
-
+                venda.setData(resultado.getDate("data_venda").toLocalDate());
                 venda.setCdVenda(resultado.getInt("cod_venda"));
                 venda.setValor(resultado.getDouble("valor_venda"));
                 cliente.setCdCliente(resultado.getInt("cod_cliente_v"));
@@ -119,6 +121,7 @@ public class VendaDAO {
             if (resultado.next()) {
                 Cliente cliente = new Cliente();
                 venda.setCdVenda(resultado.getInt("cod_venda"));
+                venda.setData(resultado.getDate("data_venda").toLocalDate());
                 venda.setValor(resultado.getDouble("valor_venda"));
                 cliente.setCdCliente(resultado.getInt("cod_cliente_v"));
                 venda.setCliente(cliente);

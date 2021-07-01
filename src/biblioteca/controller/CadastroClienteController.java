@@ -50,6 +50,7 @@ public class CadastroClienteController implements Initializable {
     private Label labelClienteNome;
     @FXML
     private Label labelClienteTelefone;
+
     
     private List<Cliente> listClientes;
     private ObservableList<Cliente> observableListClientes;
@@ -85,6 +86,7 @@ public class CadastroClienteController implements Initializable {
     
     public void carregarTableViewClientes() {
         tableColumnClienteNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tableColumnClienteTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
 
         listClientes = clienteDAO.listar();
 
@@ -96,7 +98,7 @@ public class CadastroClienteController implements Initializable {
         if (cliente != null) {
             labelClienteCodigo.setText(String.valueOf(cliente.getCdCliente()));
             labelClienteNome.setText(cliente.getNome());
-            labelClienteTelefone.setText(cliente.getTelefone());
+            labelClienteTelefone.setText(""+cliente.getTelefone());
         } else {
             labelClienteCodigo.setText("");
             labelClienteNome.setText("");
@@ -104,7 +106,17 @@ public class CadastroClienteController implements Initializable {
         }
     }
     
-    /*@FXML
+    @FXML
+    public void handleButtonInserir() throws IOException {
+        Cliente cliente = new Cliente();
+        boolean buttonConfirmarClicked = showFXMLAnchorPaneCadastrosClientesDialog(cliente);
+        if (buttonConfirmarClicked) {
+            clienteDAO.inserir(cliente);
+            carregarTableViewClientes();
+        }
+    }
+    
+    @FXML
     public void handleButtonAlterar() throws IOException {
         Cliente cliente = tableViewClientes.getSelectionModel().getSelectedItem();//Obtendo cliente selecionado
         if (cliente != null) {
@@ -131,11 +143,11 @@ public class CadastroClienteController implements Initializable {
             alert.setContentText("Por favor, escolha um cliente na Tabela!");
             alert.show();
         }
-    }*/
+    }
     
-    /*public boolean showFXMLAnchorPaneCadastrosClientesDialog(Cliente cliente) throws IOException {
+    public boolean showFXMLAnchorPaneCadastrosClientesDialog(Cliente cliente) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(CadastroClienteDialogController.class.getResource("/javafxmvc/view/FXMLAnchorPaneCadastrosClientesDialog.fxml"));
+        loader.setLocation(CadastroClienteDialogController.class.getResource("/biblioteca/view/cadastroClienteDialog.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
 
         // Criando um Estágio de Diálogo (Stage Dialog)
@@ -153,13 +165,13 @@ public class CadastroClienteController implements Initializable {
 
         // Setando o cliente no Controller.
         CadastroClienteDialogController controller = loader.getController();
-        //controller.setDialogStage(dialogStage);
-        //controller.setCliente(cliente);
+        controller.setDialogStage(dialogStage);
+        controller.setCliente(cliente);
 
         // Mostra o Dialog e espera até que o usuário o feche
         dialogStage.showAndWait();
 
-        //return controller.isButtonConfirmarClicked();
-        return true;
-    }*/
+        return controller.isButtonConfirmarClicked();
+
+    }
 }

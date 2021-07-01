@@ -35,7 +35,7 @@ public class ClienteDAO {
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, cliente.getNome());
-            stmt.setString(2, cliente.getTelefone());
+            stmt.setInt(2, cliente.getTelefone());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
@@ -49,7 +49,7 @@ public class ClienteDAO {
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, cliente.getNome());
-            stmt.setString(2, cliente.getTelefone());
+            stmt.setInt(2, cliente.getTelefone());
             stmt.setInt(3, cliente.getCdCliente());
             stmt.execute();
             return true;
@@ -82,7 +82,7 @@ public class ClienteDAO {
                 Cliente cliente = new Cliente();
                 cliente.setCdCliente(resultado.getInt("cod_cliente"));
                 cliente.setNome(resultado.getString("nome_cliente"));
-                cliente.setTelefone(resultado.getString("telefone_c"));
+                cliente.setTelefone(resultado.getInt("telefone_c"));
                 retorno.add(cliente);
             }
         } catch (SQLException ex) {
@@ -92,15 +92,15 @@ public class ClienteDAO {
     }
 
     public Cliente buscar(Cliente cliente) {
-        String sql = "SELECT * FROM cliente WHERE cdCliente=?";
+        String sql = "SELECT * FROM cliente WHERE cod_cliente=?";
         Cliente retorno = new Cliente();
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, cliente.getCdCliente());
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) {
-                cliente.setNome(resultado.getString("nome"));
-                cliente.setTelefone(resultado.getString("telefone"));
+                cliente.setNome(resultado.getString("nome_cliente"));
+                cliente.setTelefone(resultado.getInt("telefone_c"));
                 retorno = cliente;
             }
         } catch (SQLException ex) {

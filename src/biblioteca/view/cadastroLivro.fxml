@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="biblioteca.controller.CadastroLivroController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.CadastroLivroController">
     <stylesheets>
         <URL value="@/biblioteca/css/cadastrolivro.css" />
     </stylesheets>
@@ -44,18 +44,18 @@
                         <Label text="Edição" GridPane.rowIndex="3" />
                         <Label text="Autor" GridPane.rowIndex="2" />
                         <Label text="Genero" GridPane.rowIndex="4" />
-                        <Label GridPane.columnIndex="1" />
-                        <Label GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="labelLivroCodigo" GridPane.columnIndex="1" />
+                        <Label fx:id="labelLivroTitulo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="labelLivroAutor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="labelLivroEdicao" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="labelLivroGenero" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                   <Group>
                      <children>
-                        <Button fx:id="buttonRemover" layoutX="288.0" layoutY="336.0" mnemonicParsing="false" text="Remover" />
-                        <Button fx:id="buttonInserir" layoutX="166.0" layoutY="336.0" mnemonicParsing="false" text="Inserir" />
-                        <Button fx:id="buttonAlterar" layoutX="228.0" layoutY="336.0" mnemonicParsing="false" text="Alterar" />
+                        <Button fx:id="buttonRemover" layoutX="288.0" layoutY="336.0" mnemonicParsing="false" onAction="#handleButtonRemover" text="Remover" />
+                        <Button fx:id="buttonInserir" layoutX="166.0" layoutY="336.0" mnemonicParsing="false" onAction="#handleButtonInserir" text="Inserir" />
+                        <Button fx:id="buttonAlterar" layoutX="228.0" layoutY="336.0" mnemonicParsing="false" onAction="#handleButtonAlterar" text="Alterar" />
                      </children>
                   </Group>
                </children>

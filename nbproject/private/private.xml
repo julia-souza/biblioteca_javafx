@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Yesod/Desktop/TRABALHO%20POO/biblioteca_javafx/src/biblioteca/model/dao/AutorDAO.java</file>
-            <file>file:/C:/Users/Yesod/Desktop/TRABALHO%20POO/biblioteca_javafx/src/biblioteca/controller/CadastroLivroDialogController.java</file>
-            <file>file:/C:/Users/Yesod/Desktop/TRABALHO%20POO/biblioteca_javafx/src/biblioteca/model/dao/LivroDAO.java</file>
-            <file>file:/C:/Users/Yesod/Desktop/TRABALHO%20POO/biblioteca_javafx/src/biblioteca/model/dao/GeneroDAO.java</file>
+            <file>file:/C:/Users/Yesod/Desktop/TRABALHO%20POO/biblioteca_javafx/src/biblioteca/controller/CadastroVendaController.java</file>
+            <file>file:/C:/Users/Yesod/Desktop/TRABALHO%20POO/biblioteca_javafx/src/biblioteca/model/dao/ClienteDAO.java</file>
+            <file>file:/C:/Users/Yesod/Desktop/TRABALHO%20POO/biblioteca_javafx/src/biblioteca/model/dao/ItensDeVendaDAO.java</file>
+            <file>file:/C:/Users/Yesod/Desktop/TRABALHO%20POO/biblioteca_javafx/src/biblioteca/controller/CadastroLivroController.java</file>
+            <file>file:/C:/Users/Yesod/Desktop/TRABALHO%20POO/biblioteca_javafx/src/biblioteca/controller/CadastroVendaDialogController.java</file>
         </group>
     </open-files>
 </project-private>

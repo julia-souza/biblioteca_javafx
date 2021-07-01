@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="biblioteca.controller.CadastroClienteController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.CadastroClienteController">
     <stylesheets>
         <URL value="@/biblioteca/css/cadastrocliente.css" />
     </stylesheets>
@@ -47,9 +47,9 @@
                   </GridPane>
                   <Group>
                      <children>
-                        <Button fx:id="buttonRemover" layoutX="277.0" layoutY="345.0" mnemonicParsing="false" text="Remover" />
-                        <Button fx:id="buttonInserir" layoutX="160.0" layoutY="345.0" mnemonicParsing="false" text="Inserir" />
-                        <Button fx:id="buttonAlterar" layoutX="217.0" layoutY="345.0" mnemonicParsing="false" text="Alterar" />
+                        <Button fx:id="buttonRemover" layoutX="277.0" layoutY="345.0" mnemonicParsing="false" onAction="#handleButtonRemover" text="Remover" />
+                        <Button fx:id="buttonInserir" layoutX="160.0" layoutY="345.0" mnemonicParsing="false" onAction="#handleButtonInserir" text="Inserir" />
+                        <Button fx:id="buttonAlterar" layoutX="217.0" layoutY="345.0" mnemonicParsing="false" onAction="#handleButtonAlterar" text="Alterar" />
                      </children>
                   </Group>
                </children>

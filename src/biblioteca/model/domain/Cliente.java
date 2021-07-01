@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class Cliente implements Serializable{
     private int cod_Cliente;
     private String nome;
-    private String telefone;
+    private int telefone;
 
     public Cliente(){
     }
@@ -36,11 +36,11 @@ public class Cliente implements Serializable{
         this.nome = nome;
     }
 
-    public String getTelefone() {
+    public int getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
 

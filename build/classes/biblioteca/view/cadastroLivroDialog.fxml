@@ -7,15 +7,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="321.0" prefWidth="524.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="biblioteca.controller.CadastroLivroDialogController">
+<AnchorPane id="AnchorPane" prefHeight="321.0" prefWidth="524.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.CadastroLivroDialogController">
     <stylesheets>
         <URL value="@/biblioteca/css/cadastrolivrodialog.css" />
     </stylesheets>
    <children>
       <Group>
          <children>
-            <Button fx:id="buttonCancelar" layoutX="447.0" layoutY="281.0" mnemonicParsing="false" text="Cancelar" />
-            <Button fx:id="buttonConfirmar" layoutX="350.0" layoutY="281.0" mnemonicParsing="false" text="Confirmar" />
+            <Button fx:id="buttonCancelar" layoutX="447.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleButtonCancelar" text="Cancelar" />
+            <Button fx:id="buttonConfirmar" layoutX="350.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleButtonConfirmar" text="Confirmar" />
          </children>
       </Group>
       <GridPane layoutX="26.0" layoutY="14.0" prefHeight="254.0" prefWidth="470.0">
@@ -34,8 +34,8 @@
             <Label text="Edição" GridPane.rowIndex="1" />
             <Label text="Autor" GridPane.rowIndex="2" />
             <Label text="Genero" GridPane.rowIndex="3" />
-            <TextField fx:id="textFieldlLivroTitulo" GridPane.columnIndex="1" />
-            <TextField fx:id="textFieldlLivroEdicao" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textFieldLivroTitulo" GridPane.columnIndex="1" />
+            <TextField fx:id="textFieldLivroEdicao" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="comboBoxLivroAutor" prefHeight="25.0" prefWidth="235.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ComboBox fx:id="comboBoxLivroGenero" prefHeight="25.0" prefWidth="235.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>

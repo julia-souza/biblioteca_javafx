@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="biblioteca.controller.CadastroVendaController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.CadastroVendaController">
     <stylesheets>
         <URL value="@/biblioteca/css/cadastrovenda.css" />
     </stylesheets>
@@ -51,8 +51,8 @@
                   </GridPane>
                   <Group>
                      <children>
-                        <Button fx:id="buttonInserir" layoutX="99.0" layoutY="346.0" mnemonicParsing="false" text="Inserir" />
-                        <Button fx:id="buttonRemover" layoutX="187.0" layoutY="346.0" mnemonicParsing="false" text="Cancelar" />
+                        <Button fx:id="buttonInserir" layoutX="99.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleButtonInserir" text="Inserir" />
+                        <Button fx:id="buttonRemover" layoutX="187.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleButtonRemover" text="Remover" />
                      </children>
                   </Group>
                </children>

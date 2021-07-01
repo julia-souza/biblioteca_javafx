@@ -7,15 +7,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="189.0" prefWidth="295.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="biblioteca.controller.CadastroClienteDialogController">
+<AnchorPane id="AnchorPane" prefHeight="189.0" prefWidth="295.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.CadastroClienteDialogController">
     <stylesheets>
         <URL value="@cadastroclientedialog.css" />
     </stylesheets>
    <children>
       <Group>
          <children>
-            <Button fx:id="buttonConfirmar" layoutX="148.0" layoutY="150.0" mnemonicParsing="false" text="Confirmar" />
-            <Button fx:id="buttonCancelar" layoutX="229.0" layoutY="150.0" mnemonicParsing="false" text="Cancelar" />
+            <Button fx:id="buttonConfirmar" layoutX="148.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleButtonConfirmar" text="Confirmar" />
+            <Button fx:id="buttonCancelar" layoutX="229.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleButtonCancelar" text="Cancelar" />
          </children>
       </Group>
       <GridPane layoutX="19.0" layoutY="14.0" prefHeight="126.0" prefWidth="258.0">

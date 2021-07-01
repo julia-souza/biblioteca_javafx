@@ -30,7 +30,7 @@ public class ItensDeVendaDAO {
     }
 
     public boolean inserir(ItensDeVenda itemDeVenda) {
-        String sql = "INSERT INTO itensdevenda(quantidade, valor_item, cod_livro_iv, cod_venda_iv) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO itens_venda(quantidade, valor_item, cod_livro_iv, cod_venda_iv) VALUES(?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, itemDeVenda.getQuantidade());
@@ -51,7 +51,7 @@ public class ItensDeVendaDAO {
     }
 
     public boolean remover(ItensDeVenda itemDeVenda) {
-        String sql = "DELETE FROM itensDeVenda WHERE cod_itens_venda=?";
+        String sql = "DELETE FROM itens_venda WHERE cod_itens_venda=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, itemDeVenda.getCdItemDeVenda());
@@ -101,7 +101,7 @@ public class ItensDeVendaDAO {
     }
     
     public List<ItensDeVenda> listarPorVenda(Venda venda) {
-        String sql = "SELECT * FROM itensDeVenda WHERE cod_venda=?";
+        String sql = "SELECT * FROM itens_Venda WHERE cod_venda_iv=?";
         List<ItensDeVenda> retorno = new ArrayList<>();
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -115,8 +115,8 @@ public class ItensDeVendaDAO {
                 itemDeVenda.setQuantidade(resultado.getInt("quantidade"));
                 itemDeVenda.setValor(resultado.getDouble("valor_item"));
                 
-                livro.setCdLivro(resultado.getInt("cod_livro"));
-                venda.setCdVenda(resultado.getInt("cod_venda"));
+                //livro.setCdLivro(resultado.getInt("cod_livro"));
+                venda.setCdVenda(resultado.getInt("cod_venda_iv"));
                 
                 //Obtendo os dados completos do Produto associado ao Item de Venda
                 LivroDAO livroDAO = new LivroDAO();

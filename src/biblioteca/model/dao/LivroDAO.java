@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import biblioteca.model.domain.Genero;
 import biblioteca.model.domain.Autor;
 import biblioteca.model.domain.Livro;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -33,7 +34,7 @@ public class LivroDAO {
     }
 
     public boolean inserir(Livro livro) {
-        String sql = "INSERT INTO livro(titulo, edicao, cod_genero_l, cod_autor_l) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO livro(titulo,edicao,cod_genero_l,cod_autor_l) VALUES(?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, livro.getTitulo());
@@ -88,6 +89,9 @@ public class LivroDAO {
                 Livro  livro  = new Livro();
                 Genero genero = new Genero();
                 Autor  autor  = new Autor ();
+                
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
                 livro.setCdLivro(resultado.getInt("cod_livro"));
                 livro.setTitulo(resultado.getString("titulo"));
                 livro.setEdicao(resultado.getInt("edicao"));
@@ -99,7 +103,6 @@ public class LivroDAO {
                 generoDAO.setConnection(connection);
                 genero = generoDAO.buscar(genero);
                 
-
                 //Obtendo os dados completos da Categoria associada ao Produto
                 AutorDAO autorDAO = new AutorDAO();
                 autorDAO.setConnection(connection);
@@ -113,6 +116,7 @@ public class LivroDAO {
         } catch (SQLException ex) {
             Logger.getLogger(LivroDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
         return retorno;
     }
     

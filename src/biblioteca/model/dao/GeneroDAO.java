@@ -95,7 +95,7 @@ public class GeneroDAO {
             stmt.setInt(1, genero.getCdGenero());
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) {
-                genero.setTipo_Genero(resultado.getString("descricao"));
+                genero.setTipo_Genero(resultado.getString("tipo_genero"));
                 retorno = genero;
             }
         } catch (SQLException ex) {
