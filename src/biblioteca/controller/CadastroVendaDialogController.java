@@ -184,7 +184,7 @@ public class CadastroVendaDialogController implements Initializable {
             errorMessage += "Data inválida!\n";
         }
         if (observableListItensDeVenda == null) {
-            errorMessage += "Itens de Venda inválidos!\n";
+            errorMessage += "Itens de venda inválidos!\n";
         }
         
         if (errorMessage.length() == 0) {
@@ -193,7 +193,7 @@ public class CadastroVendaDialogController implements Initializable {
             // Mostrando a mensagem de erro
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erro no cadastro");
-            alert.setHeaderText("Campos inválidos, por favor, corrija...");
+            alert.setHeaderText("Campos inválidos, corrija...");
             alert.setContentText(errorMessage);
             alert.show();
             return false;
