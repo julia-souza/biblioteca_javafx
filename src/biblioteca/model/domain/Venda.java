@@ -18,6 +18,7 @@ public class Venda implements Serializable{
     private LocalDate data;
     private List<ItensDeVenda> itensDeVenda;
     private Cliente cliente;
+    private Livro livro;
 
     public Venda() {
     }
@@ -59,8 +60,16 @@ public class Venda implements Serializable{
     public Cliente getCliente() {
         return cliente;
     }
-
+    
+    public Livro getLivro(){
+        return livro;
+    }
+    
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+    
+    public void setLivro(Livro livro) {
+        this.livro = livro;
     }
 }

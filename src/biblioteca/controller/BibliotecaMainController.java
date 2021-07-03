@@ -44,6 +44,9 @@ public class BibliotecaMainController implements Initializable {
     private MenuItem relatorio_data_menuitem;
     
     @FXML
+    private MenuItem requisitar_copia_fisica;
+    
+    @FXML
     private AnchorPane anchorpane;
     
     
@@ -83,5 +86,10 @@ public class BibliotecaMainController implements Initializable {
         anchorpane.getChildren().setAll(a);      
     }
     
+    @FXML
+    public void handleMenuItemFisico() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/biblioteca/view/requisitarFisico.fxml"));
+        anchorpane.getChildren().setAll(a);      
+    }  
     
 }

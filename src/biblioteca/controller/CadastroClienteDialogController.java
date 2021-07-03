@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import static java.lang.Long.parseLong;
 
 /**
  * FXML Controller class
@@ -32,6 +33,8 @@ public class CadastroClienteDialogController implements Initializable {
     private TextField textFieldClienteNome;
     @FXML
     private TextField textFieldClienteTelefone;
+    @FXML
+    private TextField textFieldClienteCEP;
     @FXML
     private Button buttonConfirmar;
     @FXML
@@ -75,7 +78,8 @@ public class CadastroClienteDialogController implements Initializable {
     public void handleButtonConfirmar() {
         if (validarEntradaDeDados()) {
             cliente.setNome(textFieldClienteNome.getText());
-            cliente.setTelefone(Integer.parseInt(textFieldClienteTelefone.getText()));
+            cliente.setTelefone(parseLong(textFieldClienteTelefone.getText()));
+            cliente.setCEP(Integer.parseInt(textFieldClienteCEP.getText()));
 
             buttonConfirmarClicked = true;
             dialogStage.close();

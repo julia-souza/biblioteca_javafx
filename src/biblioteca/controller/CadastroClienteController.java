@@ -50,6 +50,8 @@ public class CadastroClienteController implements Initializable {
     private Label labelClienteNome;
     @FXML
     private Label labelClienteTelefone;
+    @FXML
+    private Label labelClienteCEP;
 
     
     private List<Cliente> listClientes;
@@ -99,10 +101,12 @@ public class CadastroClienteController implements Initializable {
             labelClienteCodigo.setText(String.valueOf(cliente.getCdCliente()));
             labelClienteNome.setText(cliente.getNome());
             labelClienteTelefone.setText(""+cliente.getTelefone());
+            labelClienteCEP.setText(""+cliente.getCEP());
         } else {
             labelClienteCodigo.setText("");
             labelClienteNome.setText("");
             labelClienteTelefone.setText("");
+            labelClienteCEP.setText("");
         }
     }
     

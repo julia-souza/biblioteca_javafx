@@ -9,9 +9,11 @@
    <children>
       <TableView fx:id="tabelaPorGenero" layoutX="14.0" layoutY="14.0" prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn fx:id="tabelaPorGeneroCodigo" prefWidth="99.0" text="Codigo" />
-            <TableColumn fx:id="tabelaPorGeneroGenero" prefWidth="289.0" text="Genero" />
-            <TableColumn fx:id="tabelaPorGeneroQuantidade" prefWidth="211.0" text="Quantidade" />
+          <TableColumn fx:id="tabelaPorGeneroCodigo" prefWidth="96.0" text="Codigo" />
+            <TableColumn fx:id="tabelaPorGeneroGenero" prefWidth="97.0" text="Genero" />
+            <TableColumn fx:id="tabelaPorGeneroAutor" prefWidth="138.0" text="Autor" />
+            <TableColumn fx:id="tabelaPorGeneroTitulo" prefWidth="136.0" text="Título" />
+            <TableColumn fx:id="tabelaPorGeneroEdicao" prefWidth="132.0" text="Edição" />
         </columns>
       </TableView>
       <Button fx:id="botaoImprimir" layoutX="536.0" layoutY="373.0" mnemonicParsing="false" text="Imprimir" />

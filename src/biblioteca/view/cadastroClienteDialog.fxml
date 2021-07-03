@@ -26,12 +26,15 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label fx:id="labelClienteNome" text="Nome" />
             <Label fx:id="labelClienteTelefone" text="Telefone" GridPane.rowIndex="1" />
             <TextField fx:id="textFieldClienteNome" GridPane.columnIndex="1" />
             <TextField fx:id="textFieldClienteTelefone" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="CEP" GridPane.rowIndex="2" />
+            <TextField fx:id="textFieldClienteCEP" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>

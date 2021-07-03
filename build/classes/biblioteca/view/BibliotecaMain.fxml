@@ -40,6 +40,10 @@
                   <MenuItem fx:id="relatorio_data_menuitem" mnemonicParsing="false" onAction="#handleMenuItemRelatoriosPorVenda" text="Data" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Requisitar">
+               <items>
+                  <MenuItem fx:id="requisitar_copia_fisica" mnemonicParsing="false" onAction="#handleMenuItemFisico" text="Cópia fisica" />
+               </items></Menu>
         </menus>
       </MenuBar>
       <AnchorPane fx:id="anchorpane" prefHeight="376.0" prefWidth="600.0" />

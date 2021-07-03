@@ -31,11 +31,12 @@ public class ClienteDAO {
     }
 
     public boolean inserir(Cliente cliente) {
-        String sql = "INSERT INTO cliente(nome_cliente, telefone_c) VALUES(?,?)";
+        String sql = "INSERT INTO cliente(nome_cliente, telefone_c,cep_cliente) VALUES(?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, cliente.getNome());
-            stmt.setInt(2, cliente.getTelefone());
+            stmt.setLong(2, cliente.getTelefone());
+            stmt.setInt(3,cliente.getCEP());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
@@ -45,12 +46,13 @@ public class ClienteDAO {
     }
 
     public boolean alterar(Cliente cliente) {
-        String sql = "UPDATE cliente SET nome_cliente=?, telefone_c=? WHERE cod_cliente=?";
+        String sql = "UPDATE cliente SET nome_cliente=?, telefone_c=?,cep_cliente=? WHERE cod_cliente=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, cliente.getNome());
-            stmt.setInt(2, cliente.getTelefone());
-            stmt.setInt(3, cliente.getCdCliente());
+            stmt.setLong(2, cliente.getTelefone());
+            stmt.setInt(3, cliente.getCEP());
+            stmt.setInt(4, cliente.getCdCliente());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
@@ -82,7 +84,8 @@ public class ClienteDAO {
                 Cliente cliente = new Cliente();
                 cliente.setCdCliente(resultado.getInt("cod_cliente"));
                 cliente.setNome(resultado.getString("nome_cliente"));
-                cliente.setTelefone(resultado.getInt("telefone_c"));
+                cliente.setTelefone(resultado.getLong("telefone_c"));
+                cliente.setCEP(resultado.getInt("cep_cliente"));
                 retorno.add(cliente);
             }
         } catch (SQLException ex) {
@@ -100,7 +103,7 @@ public class ClienteDAO {
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) {
                 cliente.setNome(resultado.getString("nome_cliente"));
-                cliente.setTelefone(resultado.getInt("telefone_c"));
+                cliente.setTelefone(resultado.getLong("telefone_c"));
                 retorno = cliente;
             }
         } catch (SQLException ex) {

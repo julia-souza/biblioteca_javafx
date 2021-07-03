@@ -40,7 +40,14 @@ public class FXMLRelatorioPorGeneroController implements Initializable {
     private TableColumn<Livro,String> tabelaPorGeneroGenero;
     
     @FXML
-    private TableColumn<Livro,ItensDeVenda> tabelaPorGeneroQuantidade; /*acessa a tabela livro e itens de venda*/
+    private TableColumn<Livro,String> tabelaPorGeneroAutor;
+    
+    @FXML
+    private TableColumn<Livro,String> tabelaPorGeneroTitulo;
+        
+    
+    @FXML
+    private TableColumn<Livro,String> tabelaPorGeneroEdicao;
     
     @FXML
     private Button botaoImprimir;
@@ -61,22 +68,11 @@ public class FXMLRelatorioPorGeneroController implements Initializable {
         
     }    
     public void carregarTableViewGeneros() {
-        /*
-        tableColumnCod.setCellValueFactory((param) -> new SimpleStringProperty(String.valueOf(param.getValue().getCod())));
-        tableColumnTipodeEmprestimo.setCellValueFactory(new PropertyValueFactory<>("emprestimo"));
-        tableColumnQuantiadoEmprestimo.setCellValueFactory(new PropertyValueFactory<>("valor"));
-        tableColumnQtdParcelas.setCellValueFactory(new PropertyValueFactory<>("parcela"));
-        tableColumnNomeCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
-
-        listEmprestimoConfirmado = emprestimoConfirmadoDao.listar();
-        observableListEmprestimoConfirmado = FXCollections.observableArrayList(listEmprestimoConfirmado);
-        tableViewRelatorio.setItems(observableListEmprestimoConfirmado);
-        */
-        
-        
-        tabelaPorGeneroCodigo.setCellValueFactory(new PropertyValueFactory<>("cod_genero"));
-        tabelaPorGeneroGenero.setCellValueFactory(new PropertyValueFactory<>("tipo_genero"));
-        tabelaPorGeneroQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
+        tabelaPorGeneroCodigo.setCellValueFactory(new PropertyValueFactory<>("cdLivro"));
+        tabelaPorGeneroGenero.setCellValueFactory(new PropertyValueFactory<>("genero"));
+        tabelaPorGeneroAutor.setCellValueFactory(new PropertyValueFactory<>("autor"));
+        tabelaPorGeneroTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
+        tabelaPorGeneroEdicao.setCellValueFactory(new PropertyValueFactory<>("edicao"));
 
         listGeneros = livroDAO.listar();
 

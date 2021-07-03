@@ -10,7 +10,8 @@ import java.io.Serializable;
 public class Cliente implements Serializable{
     private int cod_Cliente;
     private String nome;
-    private int telefone;
+    private long telefone;
+    private int CEP;
 
     public Cliente(){
     }
@@ -27,6 +28,13 @@ public class Cliente implements Serializable{
     public void setCdCliente(int cod_Cliente) {
         this.cod_Cliente = cod_Cliente;
     }
+    public int getCEP(){
+        return CEP;
+    }
+    
+    public void setCEP(int CEP){
+        this.CEP = CEP;
+    }
 
     public String getNome() {
         return nome;
@@ -36,11 +44,11 @@ public class Cliente implements Serializable{
         this.nome = nome;
     }
 
-    public int getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
 
