@@ -8,6 +8,7 @@ package biblioteca.model.domain;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import javafx.scene.control.Alert;
 /**
  *
  * @author Yesod
@@ -19,10 +20,17 @@ public class Venda implements Serializable{
     private List<ItensDeVenda> itensDeVenda;
     private Cliente cliente;
     private Livro livro;
+    private int Copia;
 
     public Venda() {
     }
-
+    public Boolean verificarCopiaFisica(){
+        if(Copia!=1){
+            return false;
+        }else{
+            return true;
+        }
+    }
     public Venda(int cdvenda, LocalDate data, double valor) {
         this.cdVenda = cdvenda;
         this.valor = valor;
@@ -37,6 +45,12 @@ public class Venda implements Serializable{
         this.data = data;
     }
 
+    public int getCopia(){
+        return Copia;
+    }
+    public void setCopia(int Copia){
+        this.Copia = Copia;
+    }
     public int getCdVenda() {
         return cdVenda;
     }
@@ -59,6 +73,9 @@ public class Venda implements Serializable{
     }
     public Cliente getCliente() {
         return cliente;
+    }
+    public int getCEPCliente(){
+        return cliente.getCEP();
     }
     
     public Livro getLivro(){

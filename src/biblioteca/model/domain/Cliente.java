@@ -16,9 +16,10 @@ public class Cliente implements Serializable{
     public Cliente(){
     }
     
-    public Cliente(int cod_Cliente, String nome) {
+    public Cliente(int cod_Cliente, String nome,int CEP) {
         this.cod_Cliente = cod_Cliente;
         this.nome = nome;
+        this.CEP  = CEP;
     }
 
     public int getCdCliente() {

@@ -7,8 +7,56 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.RequisitarFisicoController">
-    <stylesheets>
-        <URL value="@/biblioteca/css/requisitarfisico.css"/>
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.RequisitarFisicoController">
+   <children>
+      <SplitPane dividerPositions="0.3862876254180602" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="tableViewFisico" layoutX="1.0" prefHeight="392.0" prefWidth="228.0">
+                    <columns>
+                      <TableColumn fx:id="tableColumnFisicoCliente" prefWidth="109.0" text="Cliente" />
+                      <TableColumn fx:id="tableColumnFisicoVenda" prefWidth="118.0" text="Venda" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Group>
+                     <children>
+                        <Button fx:id="buttonInserir" layoutX="203.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleButtonInserir" text="Inserir" />
+                        <Button fx:id="buttonRemover" layoutX="277.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleButtonRemover" text="Remover" />
+                     </children>
+                  </Group>
+                  <GridPane layoutX="31.0" layoutY="59.0" prefHeight="259.0" prefWidth="285.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Venda" />
+                        <Label text="Cliente" GridPane.rowIndex="1" />
+                        <Label text="CEP" GridPane.rowIndex="2" />
+                        <Label text="Data" GridPane.rowIndex="3" />
+                        <Label text="Livros" GridPane.rowIndex="4" />
+                        <Label fx:id="labelVenda" GridPane.columnIndex="1" />
+                        <Label fx:id="labelCliente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="labelClienteCEP" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="labelVendaData" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="labelLivros" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
 </AnchorPane>

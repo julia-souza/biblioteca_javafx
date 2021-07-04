@@ -104,6 +104,7 @@ public class ClienteDAO {
             if (resultado.next()) {
                 cliente.setNome(resultado.getString("nome_cliente"));
                 cliente.setTelefone(resultado.getLong("telefone_c"));
+                cliente.setCEP(resultado.getInt("cep_cliente"));
                 retorno = cliente;
             }
         } catch (SQLException ex) {
