@@ -19,6 +19,6 @@
             <TableColumn fx:id="tabelaPorGeneroEdicao" prefWidth="132.0" text="Edição" />
         </columns>
       </TableView>
-      <Button fx:id="botaoImprimir" layoutX="463.0" layoutY="335.0" mnemonicParsing="false" text="Imprimir" />
+      <Button fx:id="botaoImprimir" layoutX="463.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleImprimir" text="Imprimir" />
    </children>
 </AnchorPane>

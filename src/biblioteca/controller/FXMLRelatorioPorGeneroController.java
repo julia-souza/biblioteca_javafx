@@ -22,7 +22,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  * FXML Controller class
  *
@@ -79,14 +84,14 @@ public class FXMLRelatorioPorGeneroController implements Initializable {
         observableListGeneros = FXCollections.observableArrayList(listGeneros);
         tabelaPorGenero.setItems(observableListGeneros);
     }
-    /*
+    
     public void handleImprimir() throws JRException{
-        URL url = getClass().getResource("/javafxmvc/relatorios/JAVAFXMVCRelatorioProdutos.jasper");
+        URL url = getClass().getResource("biblioteca/relatorios/reportBibliotecaData.jasper");
         JasperReport jasperReport = (JasperReport) JRLoader.loadObject(url);
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, connection);//null: caso não existam filtros
         JasperViewer jasperViewer = new JasperViewer(jasperPrint, false);//false: não deixa fechar a aplicação principal
         jasperViewer.setVisible(true);
     }
-*/
+
 }

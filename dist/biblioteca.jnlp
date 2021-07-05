@@ -8,8 +8,24 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="biblioteca.jar" size="75083" download="eager" />
+    <jar href="biblioteca.jar" size="88032" download="eager" />
+    <jar href="lib\asm-3.2.jar" size="43401" download="eager" />
+    <jar href="lib\commons-beanutils-1.8.3.jar" size="232019" download="eager" />
+    <jar href="lib\commons-collections4-4.4-javadoc.jar" size="2722025" download="eager" />
+    <jar href="lib\commons-collections4-4.4-sources.jar" size="715541" download="eager" />
+    <jar href="lib\commons-collections4-4.4-test-sources.jar" size="533016" download="eager" />
+    <jar href="lib\commons-collections4-4.4-tests.jar" size="816412" download="eager" />
+    <jar href="lib\commons-collections4-4.4.jar" size="751914" download="eager" />
+    <jar href="lib\commons-digester-1.8.jar" size="143602" download="eager" />
+    <jar href="lib\commons-logging-1.1.1.jar" size="60841" download="eager" />
+    <jar href="lib\groovy-1.7.2.jar" size="4669426" download="eager" />
+    <jar href="lib\iText-2.1.7.jar" size="1130070" download="eager" />
+    <jar href="lib\jasperreports-6.3.1.jar" size="5527829" download="eager" />
+    <jar href="lib\jasperreports-fonts-6.3.1.jar" size="2478097" download="eager" />
+    <jar href="lib\jasperreports-javaflow-6.3.1.jar" size="5588071" download="eager" />
+    <jar href="lib\poi-3.6-20091214.jar" size="1539291" download="eager" />
     <jar href="lib\postgresql-9.4-1202.jdbc41.jar" size="654363" download="eager" />
+    <jar href="lib\postgresql-9.4.1209.jar" size="678049" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="biblioteca" >
     <param name="requiredFXVersion" value="8.0+"/>

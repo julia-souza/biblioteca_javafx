@@ -18,6 +18,6 @@
             <TableColumn fx:id="tabelaPorVendaData" prefWidth="179.0" text="Data" />
         </columns>
       </TableView>
-      <Button fx:id="botaoImprimir" layoutX="504.0" layoutY="326.0" mnemonicParsing="false" text="Imprimir" />
+      <Button fx:id="botaoImprimir" layoutX="504.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleImprimir" text="Imprimir" />
    </children>
 </AnchorPane>

@@ -5,16 +5,12 @@
  */
 package biblioteca.controller;
 
-import biblioteca.model.dao.GeneroDAO;
-import biblioteca.model.dao.ItensDeVendaDAO;
 import biblioteca.model.dao.LivroDAO;
 import biblioteca.model.dao.VendaDAO;
 import biblioteca.model.database.Database;
 import biblioteca.model.database.DatabaseFactory;
-import biblioteca.model.domain.Genero;
-import biblioteca.model.domain.ItensDeVenda;
-import biblioteca.model.domain.Livro;
 import biblioteca.model.domain.Venda;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.Date;
@@ -28,7 +24,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  * FXML Controller class
  *
@@ -90,5 +91,13 @@ public class FXMLRelatorioPorVendaController implements Initializable {
         observableListVendas = FXCollections.observableArrayList(listVendas);
         tabelaPorVenda.setItems(observableListVendas);
     }   
-    
+    public void handleImprimir() throws JRException{
+
+        InputStream url = getClass().getResourceAsStream("biblioteca/relatorios/reportBibliotecaData.jasper");
+        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(url);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, connection);//null: caso não existam filtros
+        JasperViewer jasperViewer = new JasperViewer(jasperPrint, false);//false: não deixa fechar a aplicação principal
+        jasperViewer.setVisible(true);
+    }
 }
