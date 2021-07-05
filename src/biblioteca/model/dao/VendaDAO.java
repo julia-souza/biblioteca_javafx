@@ -288,7 +288,7 @@ public List<Venda> listarFisicos() {
     }
 
     public Map<Integer, ArrayList> listarQuantidadeVendasPorMes() {
-        String sql = "select count(cod_venda), extract(year from data) as ano, extract(month from data) as mes from vendas group by ano, mes order by ano, mes";
+        String sql = "select count(cod_venda), extract(year from data_venda) as ano, extract(month from data_venda) as mes from venda group by ano, mes order by ano, mes";
         Map<Integer, ArrayList> retorno = new HashMap();
         
         try {
@@ -317,9 +317,7 @@ public List<Venda> listarFisicos() {
     
     
     public Map<Integer, ArrayList> listarQuantidadeVendasPorGenero() {
-        String sql = "select count(cod_Venda), extract(year from data) as ano, extract(month from data) as mes from vendas"
-                + "FROM venda v, INNER JOIN itens_venda iv ON v.cod_venda = iv.cod_venda_iv,"
-                + "INNER JOIN livro l ON iv.cod_livro_iv = l.cod_livro, INNER JOIN genero gen ON l.cod_livro = gen.cod_livro, group by gen.cod_genero";
+        String sql = "select gen.tipo_genero, count(cod_Venda), extract(year from data_venda) as ano, extract(month from data_venda) as mes FROM venda v INNER JOIN itens_venda iv ON v.cod_venda = iv.cod_venda_iv INNER JOIN livro l ON iv.cod_livro_iv = l.cod_livro INNER JOIN genero gen ON l.cod_genero_l = gen.cod_genero group by gen.cod_genero, v.data_venda";
         Map<Integer, ArrayList> retorno = new HashMap();
         
         try {
@@ -330,12 +328,12 @@ public List<Venda> listarFisicos() {
                 ArrayList linha = new ArrayList();
                 if (!retorno.containsKey(resultado.getInt("ano")))
                 {
-                    linha.add(resultado.getInt("gen.cod_genero"));
+                    linha.add(resultado.getString("tipo_genero"));
                     linha.add(resultado.getInt("count"));
                     retorno.put(resultado.getInt("ano"), linha);
                 }else{
                     ArrayList linhaNova = retorno.get(resultado.getInt("ano"));
-                    linhaNova.add(resultado.getInt("gen.cod_genero"));
+                    linhaNova.add(resultado.getString("tipo_genero"));
                     linhaNova.add(resultado.getInt("count"));
                 }
             }

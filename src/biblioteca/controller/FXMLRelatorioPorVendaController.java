@@ -79,7 +79,6 @@ public class FXMLRelatorioPorVendaController implements Initializable {
     }    
     public void carregarTableViewVendas() {
         tabelaPorVendaCodigo.setCellValueFactory(new PropertyValueFactory<>("cdVenda"));
-        tabelaPorVendaNome.setCellValueFactory(new PropertyValueFactory<>("titulo"));
         tabelaPorVendaCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
         tabelaPorVendaPreço.setCellValueFactory(new PropertyValueFactory<>("valor"));
         tabelaPorVendaData.setCellValueFactory(new PropertyValueFactory<>("data"));

@@ -91,5 +91,15 @@ public class BibliotecaMainController implements Initializable {
         AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/biblioteca/view/requisitarFisico.fxml"));
         anchorpane.getChildren().setAll(a);      
     }  
+    @FXML
+    public void handleMenuItemGraficosVendasPorMes() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/biblioteca/view/FXMLAnchorPaneGraficosVendasPorMes.fxml"));
+        anchorpane.getChildren().setAll(a);
+    }
     
+    @FXML
+    public void handleMenuItemGraficosVendasPorGenero() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/biblioteca/view/FXMLAnchorPaneGraficosVendasPorGenero.fxml"));
+        anchorpane.getChildren().setAll(a);
+    }
 }

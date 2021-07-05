@@ -30,8 +30,8 @@
             </Menu>
           <Menu mnemonicParsing="false" text="Gráficos">
             <items>
-              <MenuItem fx:id="grafico_genero_menuitem" mnemonicParsing="false" text="Genero" />
-                  <MenuItem fx:id="grafico_data_menuitem" mnemonicParsing="false" text="Data" />
+              <MenuItem fx:id="grafico_genero_menuitem" mnemonicParsing="false" onAction="#handleMenuItemGraficosVendasPorGenero" text="Genero" />
+                  <MenuItem fx:id="grafico_data_menuitem" mnemonicParsing="false" onAction="#handleMenuItemGraficosVendasPorMes" text="Data" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Relatórios">

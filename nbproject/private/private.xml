@@ -2,11 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/E:/Download/biblioteca_javafx-main/biblioteca_javafx-main/src/biblioteca/model/dao/LivroDAO.java</file>
-            <file>file:/E:/Download/biblioteca_javafx-main/biblioteca_javafx-main/src/biblioteca/model/domain/ItensDeVenda.java</file>
-            <file>file:/E:/Download/biblioteca_javafx-main/biblioteca_javafx-main/src/biblioteca/model/dao/ItensDeVendaDAO.java</file>
-            <file>file:/E:/Download/biblioteca_javafx-main/biblioteca_javafx-main/src/biblioteca/model/dao/VendaDAO.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

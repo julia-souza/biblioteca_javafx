@@ -69,8 +69,6 @@ public class RequisitarFisicoController implements Initializable {
     private Label labelClienteCEP;
     @FXML
     private Label labelVendaData;
-    @FXML
-    private Label labelLivros;
     
     private final Database database = DatabaseFactory.getDatabase("postgresql");
     private final Connection connection = database.conectar();
@@ -110,7 +108,6 @@ public class RequisitarFisicoController implements Initializable {
     }
 
     public void selecionarItemTableViewVendas(Venda venda) {
-        Cliente cliente = new Cliente();
         if (venda != null) {
             labelVenda.setText(String.valueOf(venda.getCdVenda()));
             labelVendaData.setText(String.valueOf(venda.getData().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))));

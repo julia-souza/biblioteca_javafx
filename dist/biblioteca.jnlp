@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="biblioteca.jar" size="70333" download="eager" />
+    <jar href="biblioteca.jar" size="75083" download="eager" />
     <jar href="lib\postgresql-9.4-1202.jdbc41.jar" size="654363" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="biblioteca" >
