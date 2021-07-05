@@ -74,6 +74,10 @@ public class LivroDAO {
             stmt.execute();
             return true;
         } catch (SQLException ex) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Favor resolver o problema");
+            alert.setHeaderText("Livros tem vendas linkadas a eles");
+            alert.show();
             Logger.getLogger(LivroDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }

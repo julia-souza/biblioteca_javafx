@@ -89,4 +89,8 @@ public class Venda implements Serializable{
     public void setLivro(Livro livro) {
         this.livro = livro;
     }
+
+    public void add(Venda venda) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

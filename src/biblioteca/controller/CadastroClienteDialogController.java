@@ -30,6 +30,8 @@ public class CadastroClienteDialogController implements Initializable {
     @FXML
     private Label labelClienteTelefone;
     @FXML
+    private Label labelClienteCEP;
+    @FXML
     private TextField textFieldClienteNome;
     @FXML
     private TextField textFieldClienteTelefone;
@@ -68,6 +70,7 @@ public class CadastroClienteDialogController implements Initializable {
         this.cliente = cliente;
         this.textFieldClienteNome.setText(cliente.getNome());
         this.textFieldClienteTelefone.setText(""+cliente.getTelefone());
+        this.textFieldClienteCEP.setText(""+cliente.getCEP());
     }
 
     public boolean isButtonConfirmarClicked() {
@@ -101,6 +104,10 @@ public class CadastroClienteDialogController implements Initializable {
         
         if (textFieldClienteTelefone.getText() == null || textFieldClienteTelefone.getText().length() == 0) {
             errorMessage += "Telefone inválido!\n";
+        }
+        
+        if (textFieldClienteCEP.getText() == null || textFieldClienteCEP.getText().length() == 0) {
+            errorMessage += "CEP inválido!\n";
         }
 
         if (errorMessage.length() == 0) {

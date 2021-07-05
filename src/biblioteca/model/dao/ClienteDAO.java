@@ -14,6 +14,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import biblioteca.model.domain.Cliente;
+import javafx.scene.control.Alert;
+import java.lang.Exception;
+import org.postgresql.util.PSQLException;
 /**
  *
  * @author Yesod
@@ -68,7 +71,11 @@ public class ClienteDAO {
             stmt.setInt(1, cliente.getCdCliente());
             stmt.execute();
             return true;
-        } catch (SQLException ex) {
+        } catch (SQLException ex ) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Favor resolver o problema");
+            alert.setHeaderText("Clientes tem vendas linkadas a eles");
+            alert.show();
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }

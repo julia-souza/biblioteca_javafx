@@ -136,7 +136,6 @@ public class RequisitarFisicoController implements Initializable {
                 connection.setAutoCommit(false);
                 vendaDAO.setConnection(connection);
                 itensDeVendaDAO.setConnection(connection);
-                vendaDAO.inserir(venda);
                 livroDAO.setConnection(connection);
                 for (ItensDeVenda listItemDeVenda : venda.getItensDeVenda()) {
                     Livro livro = listItemDeVenda.getLivro();
@@ -175,7 +174,7 @@ public class RequisitarFisicoController implements Initializable {
 
     public boolean showFXMLAnchorPaneProcessosVendasDialog(Venda venda) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(CadastroVendaDialogController.class.getResource("/biblioteca/view/RequisitarFisicoDialogController.fxml"));
+        loader.setLocation(RequisitarFisicoDialogController.class.getResource("/biblioteca/view/requisitarFisicoDialog.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
 
         // Criando um Estágio de Diálogo (Stage Dialog)
@@ -185,7 +184,7 @@ public class RequisitarFisicoController implements Initializable {
         dialogStage.setScene(scene);
 
         // Setando a Venda no Controller.
-        CadastroVendaDialogController controller = loader.getController();
+        RequisitarFisicoDialogController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setVenda(venda);
 

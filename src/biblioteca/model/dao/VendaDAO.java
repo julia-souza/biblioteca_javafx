@@ -20,6 +20,7 @@ import biblioteca.model.domain.Cliente;
 import biblioteca.model.domain.ItensDeVenda;
 import biblioteca.model.domain.Livro;
 import biblioteca.model.domain.Venda;
+import javafx.scene.control.Alert;
 
 public class VendaDAO {
     private Connection connection;
@@ -86,30 +87,7 @@ public class VendaDAO {
         List<Venda> retorno = new ArrayList<>();
         
         
-        /*
-         String sql = "SELECT * FROM livro WHERE cod_autor_l=?";
-        List<Livro> retorno = new ArrayList<>();
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, autor.getCdAutor());
-            ResultSet resultado = stmt.executeQuery();
-        
-        try{
-            PreparedStatement stmt2 = connection.prepareStatement(sql2);
-            stmt2.setString(1, livro.getTitulo());
-            ResultSet resultado2 = stmt2.executeQuery();
-            while(resultado2.next() ) {
-                livro.setTitulo(resultado2.getString("titulo"));
-                /*LivroDAO livroDAO = new LivroDAO();
-                livroDAO.setConnection(connection);
-                livro = livroDAO.buscar(livro);
-                venda.setLivro(livro);
-                retorno.add(venda);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-*/
+
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet resultado = stmt.executeQuery();
@@ -160,36 +138,9 @@ public List<Venda> listarFisicos() {
         //String sql = "SELECT * FROM venda";
         String sql = "SELECT v.cod_venda, v.valor_venda,c.nome_cliente,iv.cod_itens_venda,iv.valor_item,l.titulo,v.data_venda,v.cod_cliente_v,copia_fisica FROM venda v INNER JOIN cliente c ON v.cod_cliente_v = c.cod_cliente INNER JOIN itens_venda iv ON v.cod_venda = iv.cod_venda_iv INNER JOIN livro l ON iv.cod_livro_iv = l.cod_livro;";
         String sql2 = "SELECT * FROM livro WHERE titulo=?";
-        /*String sql2 = "SELECT v.cod_venda, v.valor_venda,l.titulo"
-                + ",v.data_venda,v.cod_cliente_v FROM venda v INNER JOIN cliente c ON v.cod_cliente_v = c.cod_cliente "
-                + "INNER JOIN itens_venda iv ON v.cod_venda = iv.cod_venda_iv INNER JOIN livro l ON iv.cod_livro_iv = l.cod_livro WHERE titulo=?";*/
+
         List<Venda> retorno = new ArrayList<>();
         
-        
-        /*
-         String sql = "SELECT * FROM livro WHERE cod_autor_l=?";
-        List<Livro> retorno = new ArrayList<>();
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, autor.getCdAutor());
-            ResultSet resultado = stmt.executeQuery();
-        
-        try{
-            PreparedStatement stmt2 = connection.prepareStatement(sql2);
-            stmt2.setString(1, livro.getTitulo());
-            ResultSet resultado2 = stmt2.executeQuery();
-            while(resultado2.next() ) {
-                livro.setTitulo(resultado2.getString("titulo"));
-                /*LivroDAO livroDAO = new LivroDAO();
-                livroDAO.setConnection(connection);
-                livro = livroDAO.buscar(livro);
-                venda.setLivro(livro);
-                retorno.add(venda);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-*/
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet resultado = stmt.executeQuery();
@@ -278,9 +229,48 @@ public List<Venda> listarFisicos() {
         return retorno;
     }
     
-    public Venda gerarCopiaFisica(){
-        String sql = "";
-        Venda retorno = new Venda();
+    public boolean gerarCopiaFisica(Integer cod_venda){
+        String sql = "UPDATE venda SET copia_fisica=1 WHERE cod_venda=?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, cod_venda);
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    public List<Venda> listarPorCliente(Cliente escolhido){
+        
+        String sql = "SELECT * FROM venda";
+        String sql2 = "SELECT * FROM livro WHERE titulo=?";
+
+        List retorno = new ArrayList<>();
+        
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet resultado = stmt.executeQuery();
+           
+            
+            while (resultado.next()) {
+                
+                Cliente cliente = new Cliente();
+                List<ItensDeVenda> itensDeVenda = new ArrayList();
+                Livro livro = new Livro();
+                Venda venda = new Venda();
+
+                if((resultado.getInt("cod_cliente_v"))==escolhido.getCdCliente()){
+                
+                    venda.setCdVenda(resultado.getInt("cod_venda"));
+                    
+                    retorno.add(venda.getCdVenda());
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return retorno;
     }
     

@@ -7,8 +7,44 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.RequisitarFisicoDialogController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="biblioteca.controller.RequisitarFisicoDialogController">
     <stylesheets>
-        <URL value="@/biblioteca/css/requisitarfisicodialog.css"/>
+        <URL value="@/biblioteca/css/requisitarfisicodialog.css" />
     </stylesheets>
+   <children>
+      <Group />
+      <GridPane layoutX="33.0" layoutY="40.0" prefHeight="119.0" prefWidth="537.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Cliente" />
+            <ComboBox fx:id="comboBoxCliente" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" />
+            <Button fx:id="btnCliente" mnemonicParsing="false" onAction="#carregarComboBoxVenda" text="Selecionar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="33.0" layoutY="200.0" prefHeight="119.0" prefWidth="528.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Venda" />
+            <ComboBox fx:id="comboBoxVenda" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" />
+            <Label text="CEP" GridPane.rowIndex="1" />
+            <Label fx:id="CEPlabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <Button fx:id="buttonConfirmar" layoutX="400.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleButtonConfirmar" prefHeight="8.0" prefWidth="69.0" text="Confirmar" />
+      <Button fx:id="buttonCancelar" layoutX="508.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleButtonCancelar" text="Cancelar" />
+   </children>
 </AnchorPane>
